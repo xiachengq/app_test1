@@ -1,3 +1,4 @@
+import allure
 import pytest
 from Base.base_driver import Driver
 from Base.get_data import GetData
@@ -34,9 +35,13 @@ class TestSearch:
         ObjectBase.get_setting().click_search()
 
     # @parameterized.expand(build_testData(BASE_PATH + "/Data/search_text.json"))
+    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.step("操作搜索测试用例")
     @pytest.mark.parametrize("search_text, expect",search_data())
     def test_search(self, search_text, expect):
         # 输入内容
+        allure.attach("搜索框输入测试数据","输入步骤")
         ObjectBase.get_search().send_texts(search_text)
         # 获取结果进行断言
+        allure.attach("返回结果列表进行断言","断言")
         assert expect in ObjectBase.get_search().get_text()
