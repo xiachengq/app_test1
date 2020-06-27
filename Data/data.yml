@@ -1,0 +1,19 @@
+info: &data # 当前节点必须要有子节点，锚点等价于当前子节点所有节点内容
+  name: "李白"
+  phone: "1234567895"
+
+address:
+  <<: *data # 引用锚点，将锚点的所有内容 复制一份到这里
+  detail: "黑马"
+
+Search_Data:
+  search_test_001:
+    expect:
+    - 4
+    - 5
+    - 6
+    value: 456
+  search_test_002:
+    expect:
+      value: 你好
+    value: 你好

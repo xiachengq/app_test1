@@ -1,0 +1,17 @@
+{
+  "test_search_01":
+  {
+    "search_text": "1",
+    "expect": "休眠"
+  },
+   "test_search_02":
+  {
+    "search_text": "i",
+    "expect": "IP地址"
+  },
+   "test_search_03":
+  {
+    "search_text": "m",
+    "expect": "MAC地址"
+  }
+}
